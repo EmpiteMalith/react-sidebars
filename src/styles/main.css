@@ -1,8 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 * {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
 html {
@@ -14,7 +16,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   padding-bottom: 60px;
-  background-color: #f0f0f0;
+  background-color: #f8f8fb;
 }
 
 .main-wrapper {
@@ -27,14 +29,171 @@ body {
           flex-direction: column;
 }
 
+.page-wrapper {
+  -webkit-transition: margin-left 500ms;
+  transition: margin-left 500ms;
+  margin-left: 240px;
+  padding: 5rem 1.5rem 2rem 1.5rem;
+}
+
+.top-bar {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem 1.5rem;
+  position: fixed;
+  left: 240px;
+  width: calc(100% - 240px);
+  top: 0;
+  z-index: 100;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+  height: 65px;
+}
+
 .footer {
   position: absolute;
   bottom: 0px;
-  background-color: #000;
-  font-size: 0.875rem;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  height: 50px;
+  left: 240px;
+  width: calc(100% - 240px);
+  text-align: center;
+  height: 3.5rem;
+  color: #74788d;
+  background-color: #f2f2f5;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 50;
+  font-size: 14px;
+  padding-left: 1.8rem;
+}
+
+.left-menu {
+  position: fixed;
+  width: 240px;
+  height: 100vh;
+  background: #40189d;
+  z-index: 100;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+  left: 0;
+  top: 0;
+}
+
+.left-menu ul li {
   width: 100%;
+  white-space: nowrap;
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.left-menu ul li a {
+  display: block;
+  padding: 0.625rem 1.5rem;
+  color: #a6b0cf;
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.left-menu ul li a.active {
+  background: #f8f8fb;
+  color: #333;
+}
+
+.left-menu ul li a.active .curved-border-top,
+.left-menu ul li a.active .curved-border-bottom {
+  display: block;
+}
+
+.left-menu ul li .curved-border-top {
+  position: absolute;
+  top: -20px;
+  height: 20px;
+  width: 89.5%;
+  background: #fff;
+  display: none;
+}
+
+.left-menu ul li .curved-border-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 20px;
+  background-color: #40189d;
+}
+
+.left-menu ul li .curved-border-bottom {
+  position: absolute;
+  bottom: -20px;
+  height: 20px;
+  width: 89.5%;
+  background: #fff;
+  display: none;
+}
+
+.left-menu ul li .curved-border-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 20px;
+  background-color: #40189d;
+}
+
+.left-menu__icon {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+  vertical-align: middle;
+}
+
+.brand {
+  margin: 1.5rem 2rem 2rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.brand-logo {
+  color: #fff;
+  font-size: 2rem;
+  margin-top: 3px;
+}
+
+.brand-text {
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+.hamburger-menu {
+  font-size: 2rem;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

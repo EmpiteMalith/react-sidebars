@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { IoGridOutline } from "react-icons/io5";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -6,66 +7,86 @@ import { IoChatbubbleOutline } from "react-icons/io5";
 import { IoBarChartOutline } from "react-icons/io5";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { IoCreateOutline } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { IoLogoReact } from "react-icons/io5";
 
 const LeftMenu = () => {
   return (
     <div className="left-menu">
+      <div className="brand">
+        <span className="brand-logo">
+          <IoLogoReact />
+        </span>
+        <span className="brand-text">Metronic</span>
+      </div>
       <ul>
         <li>
           <NavLink to="/dashboard">
-            <span>
+            <span className="curved-border-top"></span>
+            <span className="curved-border-bottom"></span>
+            <span className="left-menu__icon">
               <IoGridOutline />
             </span>
-            <span>Dashbaord</span>
+            <span className="left-menu__text">Dashbaord</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/profile">
-            <span>
+            <span className="curved-border-top"></span>
+            <span className="curved-border-bottom"></span>
+            <span className="left-menu__icon">
               <IoPersonOutline />
             </span>
-            <span>Profile</span>
+            <span className="left-menu__text">Profile</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/charts">
-            <span>
+            <span className="curved-border-top"></span>
+            <span className="curved-border-bottom"></span>
+            <span className="left-menu__icon">
               <IoBarChartOutline />
             </span>
-            <span>Charts</span>
+            <span className="left-menu__text">Charts</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/projects">
-            <span>
+            <span className="curved-border-top"></span>
+            <span className="curved-border-bottom"></span>
+            <span className="left-menu__icon">
               <IoBriefcaseOutline />
             </span>
-            <span>Projects</span>
+            <span className="left-menu__text">Projects</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/tasks">
-            <span>
+            <span className="curved-border-top"></span>
+            <span className="curved-border-bottom"></span>
+            <span className="left-menu__icon">
               <IoCreateOutline />
             </span>
-            <span>Tasks</span>
+            <span className="left-menu__text">Tasks</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/messages">
-            <span>
+            <span className="curved-border-top"></span>
+            <span className="curved-border-bottom"></span>
+            <span className="left-menu__icon">
               <IoChatbubbleOutline />
             </span>
-            <span>Messages</span>
+            <span className="left-menu__text">Messages</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/settings">
-            <span>
+            <span className="curved-border-top"></span>
+            <span className="curved-border-bottom"></span>
+            <span className="left-menu__icon">
               <IoSettingsOutline />
             </span>
-            <span>Settings</span>
+            <span className="left-menu__text">Settings</span>
           </NavLink>
         </li>
       </ul>

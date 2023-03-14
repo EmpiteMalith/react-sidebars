@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+/*
+*******************************
+      Sidebar Collapse
+*******************************
+*/
+/*
+*******************************
+      Curved Border
+*******************************
+*/
 * {
   padding: 0;
   margin: 0;
@@ -19,6 +29,11 @@ body {
   background-color: #f8f8fb;
 }
 
+/*
+*******************************
+      Layout Wrappers
+*******************************
+*/
 .main-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -30,14 +45,23 @@ body {
 }
 
 .page-wrapper {
-  -webkit-transition: margin-left 500ms;
-  transition: margin-left 500ms;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
   margin-left: 240px;
   padding: 5rem 1.5rem 2rem 1.5rem;
 }
 
+.page-wrapper--active {
+  margin-left: 70px;
+}
+
+/*
+*******************************
+          Topbar
+*******************************
+*/
 .top-bar {
-  background: #fff;
+  background: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,6 +79,21 @@ body {
   height: 65px;
 }
 
+.top-bar--active {
+  width: calc(100% - 70px);
+  left: 70px;
+}
+
+.hamburger-menu {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/*
+*******************************
+          Footer
+*******************************
+*/
 .footer {
   position: absolute;
   bottom: 0px;
@@ -81,6 +120,16 @@ body {
   padding-left: 1.8rem;
 }
 
+.footer--active {
+  width: calc(100% - 70px);
+  left: 70px;
+}
+
+/*
+*******************************
+          Sidebar
+*******************************
+*/
 .left-menu {
   position: fixed;
   width: 240px;
@@ -115,7 +164,7 @@ body {
 
 .left-menu ul li a.active {
   background: #f8f8fb;
-  color: #333;
+  color: #333333;
 }
 
 .left-menu ul li a.active .curved-border-top,
@@ -125,11 +174,11 @@ body {
 
 .left-menu ul li .curved-border-top {
   position: absolute;
-  top: -20px;
   height: 20px;
   width: 89.5%;
-  background: #fff;
+  background: #f8f8fb;
   display: none;
+  top: -20px;
 }
 
 .left-menu ul li .curved-border-top::before {
@@ -139,17 +188,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  border-bottom-right-radius: 20px;
   background-color: #40189d;
+  border-bottom-right-radius: 20px;
 }
 
 .left-menu ul li .curved-border-bottom {
   position: absolute;
-  bottom: -20px;
   height: 20px;
   width: 89.5%;
-  background: #fff;
+  background: #f8f8fb;
   display: none;
+  bottom: -20px;
 }
 
 .left-menu ul li .curved-border-bottom::before {
@@ -159,8 +208,32 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  border-top-right-radius: 20px;
   background-color: #40189d;
+  border-top-right-radius: 20px;
+}
+
+.left-menu--active {
+  width: 70px;
+}
+
+.left-menu--active .left-menu__text {
+  display: none !important;
+}
+
+.left-menu--active .brand-text {
+  display: none !important;
+}
+
+.left-menu--active ul li {
+  padding-left: 0;
+}
+
+.left-menu--active ul li .curved-border-top::before {
+  width: 74%;
+}
+
+.left-menu--active ul li .curved-border-bottom::before {
+  width: 74%;
 }
 
 .left-menu__icon {
@@ -180,7 +253,7 @@ body {
 }
 
 .brand-logo {
-  color: #fff;
+  color: #ffffff;
   font-size: 2rem;
   margin-top: 3px;
 }
@@ -188,12 +261,7 @@ body {
 .brand-text {
   font-weight: 600;
   font-size: 1.75rem;
-  color: #fff;
+  color: #ffffff;
   margin-left: 0.5rem;
-}
-
-.hamburger-menu {
-  font-size: 2rem;
-  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

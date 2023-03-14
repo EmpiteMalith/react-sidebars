@@ -1,5 +1,6 @@
 @import "./variables";
 @import "./fonts";
+@import "./mixings";
 
 * {
   padding: 0;
@@ -20,19 +21,32 @@ body {
   background-color: $bg-color;
 }
 
+/*
+*******************************
+      Layout Wrappers
+*******************************
+*/
 .main-wrapper {
   display: flex;
   flex-direction: column;
 }
 
 .page-wrapper {
-  transition: margin-left 500ms;
+  transition: 0.3s ease all;
   margin-left: 240px;
   padding: 5rem 1.5rem 2rem 1.5rem;
+  &--active {
+    margin-left: 70px;
+  }
 }
 
+/*
+*******************************
+          Topbar
+*******************************
+*/
 .top-bar {
-  background: #fff;
+  background: $white;
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
@@ -43,8 +57,21 @@ body {
   z-index: 100;
   transition: 0.3s ease all;
   height: 65px;
+  &--active {
+    @include sidebar-collapse;
+  }
 }
 
+.hamburger-menu {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/*
+*******************************
+          Footer
+*******************************
+*/
 .footer {
   position: absolute;
   bottom: 0px;
@@ -52,8 +79,8 @@ body {
   width: calc(100% - 240px);
   text-align: center;
   height: 3.5rem;
-  color: #74788d;
-  background-color: #f2f2f5;
+  color: $grey;
+  background-color: $light-grey;
   transition: 0.3s ease all;
   overflow: hidden;
   display: flex;
@@ -62,9 +89,16 @@ body {
   z-index: 50;
   font-size: 14px;
   padding-left: 1.8rem;
+  &--active {
+    @include sidebar-collapse;
+  }
 }
 
-// Sidebar
+/*
+*******************************
+          Sidebar
+*******************************
+*/
 .left-menu {
   position: fixed;
   width: 240px;
@@ -95,79 +129,79 @@ body {
         border-bottom-left-radius: 25px;
         &.active {
           background: $bg-color;
-          color: #333;
+          color: $black;
           .curved-border-top,
           .curved-border-bottom {
             display: block;
           }
         }
       }
-      .curved-border-top {
-        position: absolute;
-        top: -20px;
-        height: 20px;
-        width: 89.5%;
-        background: #fff;
-        display: none;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border-bottom-right-radius: 20px;
-          background-color: $purple-blue;
+      .curved-border {
+        &-top {
+          @include curved-border;
+          top: -20px;
+          &::before {
+            @include curved-content;
+            border-bottom-right-radius: 20px;
+          }
         }
-      }
-      .curved-border-bottom {
-        position: absolute;
-        bottom: -20px;
-        height: 20px;
-        width: 89.5%;
-        background: #fff;
-        display: none;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border-top-right-radius: 20px;
-          background-color: $purple-blue;
+        &-bottom {
+          @include curved-border;
+          bottom: -20px;
+          &::before {
+            @include curved-content;
+            border-top-right-radius: 20px;
+          }
         }
       }
     }
   }
-}
-
-.left-menu__icon {
-  font-size: 1.5rem;
-  padding-right: 1rem;
-  vertical-align: middle;
+  &--active {
+    width: 70px;
+    .left-menu__text {
+      display: none !important;
+    }
+    .brand-text {
+      display: none !important;
+    }
+    ul {
+      li {
+        padding-left: 0;
+        .curved-border {
+          &-top {
+            &::before {
+              width: 74%;
+            }
+          }
+          &-bottom {
+            &::before {
+              width: 74%;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__icon {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+    vertical-align: middle;
+  }
 }
 
 .brand {
   margin: 1.5rem 2rem 2rem 2rem;
   display: flex;
   justify-content: center;
-}
-
-.brand-logo {
-  color: #fff;
-  font-size: 2rem;
-  margin-top: 3px;
-}
-
-.brand-text {
-  font-weight: 600;
-  font-size: 1.75rem;
-  color: #fff;
-  margin-left: 0.5rem;
-}
-
-.hamburger-menu {
-  font-size: 2rem;
-  cursor: pointer;
+  &-logo {
+    color: $white;
+    font-size: 2rem;
+    margin-top: 3px;
+  }
+  &-text {
+    font-weight: 600;
+    font-size: 1.75rem;
+    color: $white;
+    margin-left: 0.5rem;
+  }
 }

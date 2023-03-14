@@ -1,0 +1,33 @@
+/*
+*******************************
+      Sidebar Collapse
+*******************************
+*/
+
+@mixin sidebar-collapse {
+  width: calc(100% - 70px);
+  left: 70px;
+}
+
+/*
+*******************************
+      Curved Border
+*******************************
+*/
+@mixin curved-border {
+  position: absolute;
+  height: 20px;
+  width: 89.5%;
+  background: $bg-color;
+  display: none;
+}
+
+@mixin curved-content {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $purple-blue;
+}

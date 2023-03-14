@@ -1,9 +1,16 @@
-import React from 'react'
-
-const Footer = () => {
-  return (
-    <div className="footer">React-sidebars</div>
-  )
+import React from "react";
+interface sidebarCollapse {
+  sidebarActive: boolean;
 }
 
-export default Footer
+const Footer = ({ sidebarActive }: sidebarCollapse) => {
+  return (
+    <div
+      className={sidebarActive == false ? "footer" : "footer footer--active"}
+    >
+      React-sidebars
+    </div>
+  );
+};
+
+export default Footer;

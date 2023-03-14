@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Footer from "./components/footer/footer";
 import MainWrapper from "./components/layout/mainWrapper";
@@ -9,15 +9,22 @@ import PageRoutes from "./routes/pageRoutes";
 import "./styles/main.css";
 
 function App() {
+  const [sidebarCollapse, setSidebarCollapse] = useState<boolean>(false);
+
+  const sidebarToggle = () => {
+    setSidebarCollapse((prevState) => !prevState);
+    console.log(sidebarCollapse)
+  };
+
   return (
     <BrowserRouter>
       <MainWrapper>
-        <TopBar />
-        <LeftMenu/>
-        <PageWrapper>
+        <TopBar toggleMethod={sidebarToggle} sidebarActive={sidebarCollapse}/>
+        <LeftMenu sidebarActive={sidebarCollapse} />
+        <PageWrapper sidebarActive={sidebarCollapse}>
           <PageRoutes />
         </PageWrapper>
-        <Footer />
+        <Footer sidebarActive={sidebarCollapse} />
       </MainWrapper>
     </BrowserRouter>
   );

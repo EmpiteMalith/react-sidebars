@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { IoGridOutline } from "react-icons/io5";
 import { IoPersonOutline } from "react-icons/io5";
@@ -9,9 +9,17 @@ import { IoBriefcaseOutline } from "react-icons/io5";
 import { IoCreateOutline } from "react-icons/io5";
 import { IoLogoReact } from "react-icons/io5";
 
-const LeftMenu = () => {
+interface sidebarCollapse {
+  sidebarActive: boolean;
+}
+
+const LeftMenu = ({ sidebarActive }: sidebarCollapse) => {
   return (
-    <div className="left-menu">
+    <div
+      className={
+        sidebarActive == false ? "left-menu" : "left-menu left-menu--active"
+      }
+    >
       <div className="brand">
         <span className="brand-logo">
           <IoLogoReact />

@@ -1,10 +1,15 @@
 import React from "react";
 import { IoMenuOutline } from "react-icons/io5";
 
-const TopBar = () => {
+interface sideToggle {
+  toggleMethod: any;
+  sidebarActive: boolean;
+}
+
+const TopBar = ({ toggleMethod, sidebarActive }: sideToggle) => {
   return (
-    <div className="top-bar">
-      <span className="hamburger-menu">
+    <div className={sidebarActive == false ? "top-bar" : "top-bar top-bar--active"}>
+      <span className="hamburger-menu" onClick={toggleMethod}>
         <IoMenuOutline />
       </span>
     </div>
